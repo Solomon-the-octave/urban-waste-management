@@ -1,5 +1,6 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
@@ -10,14 +11,14 @@
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 </head>
 
+
 <body>
-
-
 
     <div class="login-container">
         <div class="logo">
             <img src="./images/Logo.png" alt="Logo">
         </div>
+
 
         <form id="login-form">
             <div class="input-group">
@@ -32,19 +33,25 @@
             <button type="button" class="google-login">Continue with Gmail</button>
         </form>
 
+
     </div>
 
 
+
+
     <script>
+
 
         const supabaseUrl = 'https://cgwfbohodsudyhyuuxwa.supabase.co';
         const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNnd2Zib2hvZHN1ZHloeXV1eHdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjIwNjU1NzYsImV4cCI6MjAzNzY0MTU3Nn0.oLlmLnpGf09Edemcw8k8XanluU8wehFmTQ44HSg3dtM';
         const client = supabase.createClient(supabaseUrl, supabaseKey);
 
+
         document.getElementById('login-form').addEventListener('submit', async function (event) {
             event.preventDefault(); // Prevent the form from submitting the traditional way
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
+
 
             try {
                 // Step 3: Call Supabase signUp function and handle response
@@ -52,6 +59,7 @@
                     email: email,
                     password: password,
                 });
+
 
                 if (error) {
                     console.error('Error:', error.message);
@@ -67,6 +75,7 @@
             }
         });
 
+
         // Function to toggle password visibility
         function togglePasswordVisibility() {
             if (passwordInput.type === 'password') {
@@ -78,10 +87,13 @@
             }
         }
 
+
         // Event listener for the toggle button
         toggleButton.addEventListener('click', togglePasswordVisibility);
     </script>
 
+
 </body>
+
 
 </html>

@@ -37,6 +37,22 @@ body {
     min-height: 100vh;
 }
 
+.welcome-message-and-date-wigdet{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.date-widget {
+    margin-right: 20px;
+    display: inline-flex;
+    padding: 16px 20px;
+    border: 1px solid var(--Grey-200, #E4E7EC);
+    background: #FFF;
+    display: flex;
+    justify-content: space-between;
+}
+
 /* Sidebar Styles */
 .sidebar {
     width: 260px;
