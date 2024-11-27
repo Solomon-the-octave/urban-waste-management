@@ -48,9 +48,9 @@ We welcome contributions to improve the platform. Please create a pull request f
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
 
-Contact
-email w.solomon@alustudent.com
-phone +250798287530
+## Contact
+-Email: w.solomon@alustudent.com
+-Phone: +250798287530
                                             
 
 
