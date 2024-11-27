@@ -27,7 +27,7 @@ The dashboard focuses on optimizing urban waste collection operations, targeting
 
 ## Installation
 ```bash
-git clone https://github.com/yourusername/urban-waste-management.git
+git clone https://github.com/Solomon-the-octave/urban-waste-management.git
 cd urban-waste-management
 npm install
 ```
@@ -47,6 +47,10 @@ We welcome contributions to improve the platform. Please create a pull request f
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
+
+Contact
+email w.solomon@alustudent.com
+phone +250798287530
                                             
 
 
