@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection History - WasteTrack</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        
+        <!-- Consistent Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="/api/placeholder/40/40" alt="Logo">
+                <h2>WasteTrack</h2>
+            </div>
+            <div class="nav-links">
+                <a href="home.html">
+                    <span class="icon">🏠</span>
+                    Dashboard
+                </a>
+                <a href="schedulepickup.html" class="active">
+                    <span class="icon">📅</span>
+                    Schedule Pickup
+                </a>
+                <a href="collectionhistory.html">
+                    <span class="icon">📋</span>
+                    Collection History
+                </a>
+                <a href="realtimetracking.html">
+                    <span class="icon">🚛</span>
+                    Real-time Tracking
+                </a>
+            </div>
+            <div class="user-profile">
+                <img src="/api/placeholder/32/32" alt="Profile">
+                <div class="user-info">
+                    <h4>John Doe</h4>
+                    <p>Resident</p>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>Collection History</h1>
+                <div class="header-actions">
+                    <button class="notification-btn">🔔</button>
+                    <button class="profile-btn">👤</button>
+                </div>
+            </header>
+
+            <div class="history-container">
+                <!-- Filters -->
+                <div class="filter-section">
+                    <select class="filter-dropdown">
+                        <option value="all">All Time</option>
+                        <option value="month">This Month</option>
+                        <option value="week">This Week</option>
+                    </select>
+                    <input type="date" class="date-filter">
+                    <button class="filter-btn">Apply Filters</button>
+                </div>
+
+                <!-- History Table -->
+                <div class="table-container">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Location</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024-11-25</td>
+                                <td>09:30 AM</td>
+                                <td>123 Green St</td>
+                                <td>Regular Waste</td>
+                                <td><span class="status-completed">Completed</span></td>
+                                <td>
+                                    <button class="view-details-btn">View Details</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2024-11-23</td>
+                                <td>02:15 PM</td>
+                                <td>123 Green St</td>
+                                <td>Recycling</td>
+                                <td><span class="status-completed">Completed</span></td>
+                                <td>
+                                    <button class="view-details-btn">View Details</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button>Previous</button>
+                    <span>Page 1 of 5</span>
+                    <button>Next</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

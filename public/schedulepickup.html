@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Pickup - WasteTrack</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Consistent Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="/api/placeholder/40/40" alt="Logo">
+                <h2>WasteTrack</h2>
+            </div>
+
+            <div class="nav-links">
+                <a href="home.html">
+                    <span class="icon">🏠</span>
+                    Dashboard
+                </a>
+                <a href="schedulepickup.html" class="active">
+                    <span class="icon">📅</span>
+                    Schedule Pickup
+                </a>
+                <a href="collectionhistory.html">
+                    <span class="icon">📋</span>
+                    Collection History
+                </a>
+                <a href="realtimetracking.html">
+                    <span class="icon">🚛</span>
+                    Real-time Tracking
+                </a>
+            </div>
+            <div class="user-profile">
+                <img src="/api/placeholder/32/32" alt="Profile">
+                <div class="user-info">
+                    <h4>John Doe</h4>
+                    <p>Resident</p>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>Schedule Pickup</h1>
+                <div class="header-actions">
+                    <button class="notification-btn">🔔</button>
+                    <button class="profile-btn">👤</button>
+                </div>
+            </header>
+
+            <div class="schedule-container">
+                <form class="schedule-form" id="scheduleForm">
+                    
+                    <!-- Pickup Details -->
+                    <div class="form-section">
+                        <h3>Pickup Details</h3>
+                        <div class="form-group">
+                            <label>Waste Type</label>
+                            <select name="wasteType" required>
+                                <option value="">Select Waste Type</option>
+                                <option value="general">General Waste</option>
+                                <option value="recycling">Recycling</option>
+                                <option value="garden">Garden Waste</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Estimated Volume</label>
+                            <select name="volume" required>
+                                <option value="">Select Volume</option>
+                                <option value="small">Small (1-2 bags)</option>
+                                <option value="medium">Medium (3-5 bags)</option>
+                                <option value="large">Large (6+ bags)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Date and Time -->
+                    <div class="form-section">
+                        <h3>Preferred Date & Time</h3>
+                        <div class="date-time-grid">
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input type="date" name="pickupDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Time</label>
+                                <select name="pickupTime" required>
+                                    <option value="">Select Time Slot</option>
+                                    <option value="morning">Morning (8AM - 12PM)</option>
+                                    <option value="afternoon">Afternoon (12PM - 4PM)</option>
+                                    <option value="evening">Evening (4PM - 8PM)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="form-section">
+                        <h3>Pickup Location</h3>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text" name="address" placeholder="Enter your address" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Additional Instructions</label>
+                            <textarea name="instructions" placeholder="E.g., Gate code, placement instructions"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-actions">
+                        <button type="button" class="secondary-btn" onclick="window.location.href='home.html'">Cancel</button>
+                        <button type="submit" class="primary-btn">Schedule Pickup</button>
+                    </div>
+                </form>
+
+                <!-- Upcoming Pickups -->
+                <div class="upcoming-pickups">
+                    <h3>Upcoming Pickups</h3>
+                    <div class="pickup-list">
+                        <div class="pickup-item">
+                            <div class="pickup-info">
+                                <h4>General Waste</h4>
+                                <p>Tomorrow, 10:00 AM</p>
+                                <p>123 Green St</p>
+                            </div>
+                            <button class="cancel-btn">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

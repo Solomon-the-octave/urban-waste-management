@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Tracking - WasteTrack</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+
+        <!-- Consistent Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="/api/placeholder/40/40" alt="Logo">
+                <h2>WasteTrack</h2>
+            </div>
+            <div class="nav-links">
+                <a href="home.html">
+                    <span class="icon">🏠</span>
+                    Dashboard
+                </a>
+                <a href="schedulepickup.html" class="active">
+                    <span class="icon">📅</span>
+                    Schedule Pickup
+                </a>
+                <a href="collectionhistory.html">
+                    <span class="icon">📋</span>
+                    Collection History
+                </a>
+                <a href="realtimetracking.html">
+                    <span class="icon">🚛</span>
+                    Real-time Tracking
+                </a>
+            </div>
+
+            <div class="user-profile">
+                <img src="/api/placeholder/32/32" alt="Profile">
+                <div class="user-info">
+                    <h4>John Doe</h4>
+                    <p>Resident</p>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>Real-time Tracking</h1>
+                <div class="header-actions">
+                    <button class="notification-btn">🔔</button>
+                    <button class="profile-btn">👤</button>
+                </div>
+            </header>
+
+            <div class="tracking-container">
+                <!-- Active Pickups -->
+                <div class="active-pickups">
+                    <h2>Active Pickups</h2>
+                    <div class="pickup-cards">
+                        <div class="pickup-card active">
+                            <div class="pickup-header">
+                                <h3>Today's Pickup</h3>
+                                <span class="status">In Progress</span>
+                            </div>
+                            <div class="pickup-details">
+                                <p>Location: 123 Green St</p>
+                                <p>Expected Time: 10:30 AM</p>
+                                <p>Driver: Mike Johnson</p>
+                            </div>
+                            <div class="progress-tracker">
+                                <div class="progress-step completed">
+                                    <span class="step-icon">✓</span>
+                                    <span>Scheduled</span>
+                                </div>
+                                <div class="progress-step active">
+                                    <span class="step-icon">🚛</span>
+                                    <span>En Route</span>
+                                </div>
+                                <div class="progress-step">
+                                    <span class="step-icon">📦</span>
+                                    <span>Pickup</span>
+                                </div>
+                                <div class="progress-step">
+                                    <span class="step-icon">✓</span>
+                                    <span>Completed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map View -->
+                <div class="map-container">
+                    <div class="map-controls">
+                        <button class="zoom-in">+</button>
+                        <button class="zoom-out">-</button>
+                        <button class="current-location">📍</button>
+                    </div>
+                    <div class="map-placeholder">
+                        <!-- Map will be rendered here by JavaScript -->
+                        <p>Interactive Map Loading...</p>
+                    </div>
+                </div>
+
+                <!-- Real-time Updates -->
+                <div class="updates-panel">
+                    <h3>Live Updates</h3>
+                    <div class="updates-list">
+                        <div class="update-item">
+                            <span class="update-time">10:15 AM</span>
+                            <p>Vehicle en route to your location</p>
+                        </div>
+                        <div class="update-item">
+                            <span class="update-time">10:00 AM</span>
+                            <p>Driver assigned to your pickup</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

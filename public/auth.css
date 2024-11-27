@@ -1,0 +1,170 @@
+:root {
+    --primary-green: #2ecc71;
+    --secondary-green: #27ae60;
+    --accent-yellow: #f1c40f;
+    --light-green: #eafaf1;
+    --white: #ffffff;
+    --gray-100: #f7fafc;
+    --gray-200: #edf2f7;
+    --gray-300: #e2e8f0;
+    --gray-400: #cbd5e0;
+    --gray-500: #a0aec0;
+    --gray-600: #718096;
+    --gray-700: #4a5568;
+    --success: #28a745;
+    --warning: #ffc107;
+    --danger: #dc3545;
+}
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    background-image: url('./images/image.jpg'); /* Replace with your image path */
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the background image */
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+/* Login Page Styles */
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 160px; 
+    margin: 60px;
+    background: #FFF; 
+    box-shadow: 0px 4px 100px 0px rgba(168, 168, 168, 0.05); 
+    width: auto; 
+    box-sizing: border-box;
+}
+
+.input-group {
+    width: 100%; 
+}
+
+input[type="email"], input[type="password"] {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.login-button, .google-login {
+    width: 100%;
+    padding: 12px 120px 12px 120px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2ecc71;
+    color: white;
+    cursor: pointer;
+    margin-top: 24px;
+}
+
+.login-button:hover, .google-login:hover {
+    background-color: #27ae60;
+
+}    
+
+.divider {
+    text-align: center;
+    width: 100%; 
+}
+
+.alternative {
+    text-align: center;
+    width: 100%; 
+}
+
+a {
+    color: #2ecc71; 
+}
+
+.logo img {
+    width: 240px;
+    height: 100px;
+    margin-bottom: 30px;
+}
+
+/* Signup Page Styles */
+
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 160px; 
+    margin: 60px;
+    background: #FFF; 
+    box-shadow: 0px 4px 100px 0px rgba(168, 168, 168, 0.05); 
+    width: auto; 
+    box-sizing: border-box;
+}
+
+.input-group {
+    width: 100%; /* Full width within the container for alignment */
+    position: relative; /* Setup for potentially positioning other elements like icons */
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px; /* Adds space below each input field */
+    border: 1px solid #ccc; /* Subtle border styling */
+    border-radius: 5px; /* Slight rounding of corners to match the container */
+    box-sizing: border-box; /* Ensures padding does not affect the overall width */
+}
+
+input[type="checkbox"] {
+    margin-right: 10px; /* Space between checkbox and label */
+}
+
+.signup-button, .google-signup {
+    width: 100%;
+    padding: 12px 120px 12px 120px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2ecc71;
+    color: white;
+    cursor: pointer;
+    margin-top: 24px;
+}
+
+.signup-button:hover, .google-login:hover {
+    background-color: #27ae60; /* Slightly darker orange on hover for feedback */
+}
+
+.divider {
+    text-align: center;
+    width: 100%;
+    border-top: 1px solid #ccc;
+    line-height: 0.1em;
+    margin: 20px 0 20px;
+}
+
+.divider span {
+    background: #FFF;
+    padding: 0 10px;
+}
+
+.alternative {
+    text-align: center;
+    margin-top: 20px; /* Space above the alternative link */
+}
+
+a {
+    color: #2ecc71;
+    text-decoration: none; /* Removes underline from links for a cleaner look */
+}
+
+a:hover {
+    text-decoration: underline; /* Adds underline on hover for link recognition */
+}
+
+.logo img {
+    width: 240px;
+    height: 100px;
+    margin-bottom: 30px;
+}

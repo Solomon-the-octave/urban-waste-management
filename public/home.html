@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Management - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        
+            <nav class="sidebar">
+                <div class="logo">
+                    <img src="/api/placeholder/40/40" alt="Logo">
+                    <h2>WasteTrack</h2>
+                </div>
+                <div class="nav-links">
+                    <a href="home.html">
+                        <span class="icon">🏠</span>
+                        Dashboard
+                    </a>
+                    <a href="schedulepickup.html" class="active">
+                        <span class="icon">📅</span>
+                        Schedule Pickup
+                    </a>
+                    <a href="collectionhistory.html">
+                        <span class="icon">📋</span>
+                        Collection History
+                    </a>
+                    <a href="realtimetracking.html">
+                        <span class="icon">🚛</span>
+                        Real-time Tracking
+                    </a>
+                </div>
+
+            <div class="user-profile">
+                <img src="/api/placeholder/32/32" alt="Profile">
+                <div class="user-info">
+                    <h4>John Doe</h4>
+                    <p>Resident</p>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <input type="search" placeholder="Search...">
+                </div>
+                <div class="header-actions">
+                    <button class="notification-btn">🔔</button>
+                    <button class="profile-btn">👤</button>
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+                <!-- Statistics Cards -->
+                <div class="stat-card">
+                    <h3>Total Pickups</h3>
+                    <p class="stat-number">24</p>
+                    <span class="stat-label">This Month</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Upcoming Pickups</h3>
+                    <p class="stat-number">3</p>
+                    <span class="stat-label">Scheduled</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Waste Collected</h3>
+                    <p class="stat-number">156kg</p>
+                    <span class="stat-label">This Month</span>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="activity-section">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <span class="activity-icon">✅</span>
+                            <div class="activity-details">
+                                <p>Pickup completed successfully</p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-icon">📅</span>
+                            <div class="activity-details">
+                                <p>New pickup scheduled</p>
+                                <span class="activity-time">Yesterday</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
