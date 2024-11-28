@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile View</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="bg-gray-100 ">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="w-64 bg-white shadow-md hidden md:block ">
+            <div class="p-6 border-b">
+                <h1 class="text-2xl font-bold text-green-600 flex items-center">
+                    <i class="fas fa-recycle mr-3"></i>Green Solutions
+                </h1>
+            </div>
+            <nav class="p-4 w-full">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="dashboard.html"
+                            class="flex items-center p-2 text-gray-700 hover:bg-green-50 rounded-lg"
+                            id="dashboard-link">
+                            <i class="fas fa-home mr-3"></i>Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="schedule.html" class="flex items-center p-2 text-gray-700 hover:bg-green-50 rounded-lg"
+                            id="schedule-link">
+                            <i class="fas fa-calendar-alt mr-3"></i>Schedule Collection
+                        </a>
+                    </li>
+                    <li>
+                        <a href="binSchedule.html"
+                            class="flex items-center p-2 text-gray-700 hover:bg-green-50 rounded-lg"
+                            id="bin-status-link">
+                            <i class="fas fa-trash-alt mr-3"></i>Bin Status
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-2 text-gray-700 hover:bg-green-50 rounded-lg"
+                            id="notifications-link">
+                            <i class="fas fa-bell mr-3"></i>Notifications
+                        </a>
+                    </li>
+                    <li>
+                        <a href="profileView.html"
+                            class="flex items-center p-2 text-gray-700 hover:bg-green-50 rounded-lg" id="profile-link">
+                            <i class="fas fa-user mr-3"></i>Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a href="login.html"
+                            class="flex items-center p-2 text-red-700 hover:bg-green-50 rounded-lg" id="profile-link">
+                            <i class="fas fa-user mr-3"></i>logout
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col w-full">
+            <!-- Top Navigation -->
+            <header class="bg-white shadow-md p-4 flex justify-between items-center">
+                <div class="flex items-center">
+                    <button id="mobile-menu-toggle" class="md:hidden mr-4">
+                        <i class="fas fa-bars text-green-600"></i>
+                    </button>
+                    <h2 class="text-2xl font-semibold text-gray-800">Dashboard</h2>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <i class="fas fa-bell text-gray-600"></i>
+                        <span
+                            class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-xs">3</span>
+                    </div>
+                    <div class="relative">
+                        <img src="/api/placeholder/40/40" alt="User" class="rounded-full w-10 h-10">
+                        <button id="user-menu-toggle" class="absolute inset-0 opacity-0"></button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Dashboard Content -->
+            <main class="p-6 bg-gray-100 flex-1 overflow-y-auto w-full">
+                <div class="flex flex-col items-center p-6 w-full  bg-white rounded-lg shadow-md">
+                    <h1 class="text-3xl font-bold text-green-600 mb-6">Profile View</h1>
+                
+                    <!-- Profile Form -->
+                    <form id="profile-form" class="space-y-4 w-full">
+                        <div>
+                            <label for="name" class="block text-gray-600">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg" placeholder="Enter your name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-600">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg" placeholder="Enter your email">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-600">Phone Number</label>
+                            <input type="text" id="phone" class="w-full px-4 py-2 border rounded-lg" placeholder="Enter your phone number">
+                        </div>
+                        <div>
+                            <label for="address" class="block text-gray-600">Address</label>
+                            <input type="text" id="address" class="w-full px-4 py-2 border rounded-lg" placeholder="Enter your address">
+                        </div>
+                        <div>
+                            <label for="bio" class="block text-gray-600">Bio</label>
+                            <textarea id="bio" class="w-full px-4 py-2 border rounded-lg" placeholder="Tell us about yourself" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+                            Update Profile
+                        </button>
+                    </form>
+                
+                    <!-- Profile Information Display -->
+                    <div id="profile-info" class="mt-6 w-full text-gray-700">
+                        <h2 class="text-xl font-semibold mb-4">Profile Information</h2>
+                        <div class="space-y-2">
+                            <p><strong>Name:</strong> <span id="profile-name">John Doe</span></p>
+                            <p><strong>Email:</strong> <span id="profile-email">johndoe@example.com</span></p>
+                            <p><strong>Phone:</strong> <span id="profile-phone">123-456-7890</span></p>
+                            <p><strong>Address:</strong> <span id="profile-address">123 Main St, City</span></p>
+                            <p><strong>Bio:</strong> <span id="profile-bio">A passionate developer.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+<script>
+    // Load profile data from localStorage
+    function loadProfileData() {
+        const profileData = JSON.parse(localStorage.getItem('profile')) || {
+            name: 'John Doe',
+            email: 'johndoe@example.com',
+            phone: '123-456-7890',
+            address: '123 Main St, City',
+            bio: 'A passionate developer.'
+        };
+
+        document.getElementById('name').value = profileData.name;
+        document.getElementById('email').value = profileData.email;
+        document.getElementById('phone').value = profileData.phone;
+        document.getElementById('address').value = profileData.address;
+        document.getElementById('bio').value = profileData.bio;
+
+        document.getElementById('profile-name').textContent = profileData.name;
+        document.getElementById('profile-email').textContent = profileData.email;
+        document.getElementById('profile-phone').textContent = profileData.phone;
+        document.getElementById('profile-address').textContent = profileData.address;
+        document.getElementById('profile-bio').textContent = profileData.bio;
+    }
+
+    // Save profile data to localStorage
+    function saveProfileData(profileData) {
+        localStorage.setItem('profile', JSON.stringify(profileData));
+    }
+
+    // Handle form submission and update profile
+    document.getElementById('profile-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const updatedProfile = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            address: document.getElementById('address').value,
+            bio: document.getElementById('bio').value
+        };
+
+        saveProfileData(updatedProfile);  // Save updated profile to localStorage
+
+        alert('Profile updated successfully!');
+        loadProfileData();  // Reload the profile information
+    });
+
+    // Initial load of profile data
+    loadProfileData();
+</script>
+</body>
+
+</html>

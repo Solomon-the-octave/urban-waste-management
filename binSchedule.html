@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bin Status</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="bg-gray-100 ">
+    <div class="flex h-screen w-full">
+        <!-- Sidebar -->
+        <div class="w-64 bg-white shadow-md hidden md:block">
+            <div class="p-6 border-b">
+                <h1 class="text-2xl font-bold text-green-600 flex items-center">
+                    <i class="fas fa-recycle mr-3"></i>Green Solutions
+                </h1>
+            </div>
+            <nav class="p-4">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="dashboard.html"
+                            class="flex items-center p-2 text-gray-700 hover:bg-green-50 rounded-lg"
+                            id="dashboard-link">
+                            <i class="fas fa-home mr-3"></i>Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="schedule.html" class="flex items-center p-2 text-gray-700 hover:bg-green-50 rounded-lg"
+                            id="schedule-link">
+                            <i class="fas fa-calendar-alt mr-3"></i>Schedule Collection
+                        </a>
+                    </li>
+                    <li>
+                        <a href="binSchedule.html"
+                            class="flex items-center p-2 text-gray-700 hover:bg-green-50 rounded-lg"
+                            id="bin-status-link">
+                            <i class="fas fa-trash-alt mr-3"></i>Bin Status
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-2 text-gray-700 hover:bg-green-50 rounded-lg"
+                            id="notifications-link">
+                            <i class="fas fa-bell mr-3"></i>Notifications
+                        </a>
+                    </li>
+                    <li>
+                        <a href="profileView.html" class="flex items-center p-2 text-gray-700 hover:bg-green-50 rounded-lg"
+                            id="profile-link">
+                            <i class="fas fa-user mr-3"></i>Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a href="login.html"
+                            class="flex items-center p-2 text-red-700 hover:bg-green-50 rounded-lg" id="profile-link">
+                            <i class="fas fa-user mr-3"></i>logout
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Main Content -->
+        <main class="w-full">
+            <!-- Top Navigation -->
+            <header class="bg-white shadow-md p-4 flex justify-between items-center">
+                <div class="flex items-center">
+                    <button id="mobile-menu-toggle" class="md:hidden mr-4">
+                        <i class="fas fa-bars text-green-600"></i>
+                    </button>
+                    <h2 class="text-2xl font-semibold text-gray-800">Dashboard</h2>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <i class="fas fa-bell text-gray-600"></i>
+                        <span
+                            class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-xs">3</span>
+                    </div>
+                    <div class="relative">
+                        <img src="/api/placeholder/40/40" alt="User" class="rounded-full w-10 h-10">
+                        <button id="user-menu-toggle" class="absolute inset-0 opacity-0"></button>
+                    </div>
+                </div>
+            </header>
+            <div class="flex flex-col items-center p-6">
+                <h1 class="text-3xl font-bold text-green-600 mb-6">Bin Status</h1>
+
+                <!-- Add Bin Status Form -->
+                <div class="bg-white p-6 rounded-lg shadow-md w-full">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Add New Bin Status</h2>
+                    <form id="bin-status-form" class="space-y-4">
+                        <div>
+                            <label for="bin-location" class="block text-gray-600">Bin Location</label>
+                            <input type="text" id="bin-location" class="w-full px-4 py-2 border rounded-lg"
+                                placeholder="Enter bin location">
+                        </div>
+                        <div>
+                            <label for="bin-status" class="block text-gray-600">Bin Status</label>
+                            <select id="bin-status" class="w-full px-4 py-2 border rounded-lg">
+                                <option value="Empty">Empty</option>
+                                <option value="Half-Full">Half-Full</option>
+                                <option value="Full">Full</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="bin-capacity" class="block text-gray-600">Bin Capacity</label>
+                            <input type="number" id="bin-capacity" class="w-full px-4 py-2 border rounded-lg"
+                                placeholder="Enter bin capacity (kg)">
+                        </div>
+                        <div>
+                            <label for="current-load" class="block text-gray-600">Current Load</label>
+                            <input type="number" id="current-load" class="w-full px-4 py-2 border rounded-lg"
+                                placeholder="Enter current load (kg)">
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+                            Add Bin Status
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Bin Status List -->
+                <div class="bg-white p-6 mt-6 rounded-lg shadow-md w-full">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Bin Statuses</h2>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full table-auto border-collapse">
+                            <thead class="bg-gray-200">
+                                <tr>
+                                    <th class="px-4 py-2 text-left text-gray-600 font-medium">Location</th>
+                                    <th class="px-4 py-2 text-left text-gray-600 font-medium">Status</th>
+                                    <th class="px-4 py-2 text-left text-gray-600 font-medium">Capacity (kg)</th>
+                                    <th class="px-4 py-2 text-left text-gray-600 font-medium">Current Load (kg)</th>
+                                    <th class="px-4 py-2 text-left text-gray-600 font-medium">Progress</th>
+                                    <th class="px-4 py-2 text-left text-gray-600 font-medium">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bin-status-list" class="divide-y"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        // Load bin status data from localStorage
+        function loadBinStatuses() {
+            const binStatuses = JSON.parse(localStorage.getItem('binStatuses')) || [];
+            const binStatusList = document.getElementById('bin-status-list');
+            binStatusList.innerHTML = '';
+
+            binStatuses.forEach((bin, index) => {
+                const progress = (bin.currentLoad / bin.capacity) * 100;
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="px-4 py-2">${bin.location}</td>
+                    <td class="px-4 py-2">${bin.status}</td>
+                    <td class="px-4 py-2">${bin.capacity} kg</td>
+                    <td class="px-4 py-2">${bin.currentLoad} kg</td>
+                    <td class="px-4 py-2">
+                        <div class="w-full bg-gray-200 rounded-full">
+                            <div class="bg-green-500 text-xs font-medium text-green-100 text-center p-0.5 leading-none rounded-l-full" style="width: ${progress}%">
+                                ${Math.round(progress)}%
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-4 py-2">
+                        <button class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600" onclick="editBinStatus(${index})">Edit</button>
+                        <button class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600" onclick="deleteBinStatus(${index})">Delete</button>
+                    </td>
+                `;
+                binStatusList.appendChild(row);
+            });
+        }
+
+        // Save bin statuses to localStorage
+        function saveBinStatuses(binStatuses) {
+            localStorage.setItem('binStatuses', JSON.stringify(binStatuses));
+        }
+
+        // Add new bin status
+        document.getElementById('bin-status-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const location = document.getElementById('bin-location').value;
+            const status = document.getElementById('bin-status').value;
+            const capacity = parseFloat(document.getElementById('bin-capacity').value);
+            const currentLoad = parseFloat(document.getElementById('current-load').value);
+
+            // Validate data
+            if (!location || isNaN(capacity) || isNaN(currentLoad) || capacity <= 0 || currentLoad < 0) {
+                alert('Please fill in all fields correctly.');
+                return;
+            }
+
+            // Load existing bin statuses
+            const binStatuses = JSON.parse(localStorage.getItem('binStatuses')) || [];
+
+            // Add new bin status
+            const newBinStatus = { location, status, capacity, currentLoad };
+            binStatuses.push(newBinStatus);
+
+            // Save updated bin statuses to localStorage
+            saveBinStatuses(binStatuses);
+
+            alert('Bin status added successfully!');
+            loadBinStatuses(); // Refresh the bin status list
+            e.target.reset(); // Clear the form
+        });
+
+        // Edit an existing bin status
+        function editBinStatus(index) {
+            const binStatuses = JSON.parse(localStorage.getItem('binStatuses')) || [];
+            const bin = binStatuses[index];
+
+            // Pre-fill the form with the bin's data
+            document.getElementById('bin-location').value = bin.location;
+            document.getElementById('bin-status').value = bin.status;
+            document.getElementById('bin-capacity').value = bin.capacity;
+            document.getElementById('current-load').value = bin.currentLoad;
+
+            // Modify the submit handler to update the existing bin status
+            document.getElementById('bin-status-form').addEventListener('submit', function updateBinStatus(e) {
+                e.preventDefault();
+
+                binStatuses[index] = {
+                    location: document.getElementById('bin-location').value,
+                    status: document.getElementById('bin-status').value,
+                    capacity: parseFloat(document.getElementById('bin-capacity').value),
+                    currentLoad: parseFloat(document.getElementById('current-load').value)
+                };
+
+                saveBinStatuses(binStatuses);
+                loadBinStatuses();
+                e.target.reset();
+
+                // Remove the temporary update handler
+                document.getElementById('bin-status-form').removeEventListener('submit', updateBinStatus);
+            }, { once: true });
+        }
+
+        // Delete a bin status
+        function deleteBinStatus(index) {
+            const binStatuses = JSON.parse(localStorage.getItem('binStatuses')) || [];
+
+            if (confirm('Are you sure you want to delete this bin status?')) {
+                binStatuses.splice(index, 1); // Remove the bin status at the given index
+                saveBinStatuses(binStatuses);
+                loadBinStatuses(); // Refresh the bin status list
+            }
+        }
+
+        // Initial load
+        loadBinStatuses();
+    </script>
+</body>
+
+</html>
