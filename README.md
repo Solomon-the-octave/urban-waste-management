@@ -20,7 +20,7 @@ The dashboard focuses on optimizing urban waste collection operations, targeting
 
 ## Technologies Used
 * Frontend: HTML, CSS, JavaScript
-* Backend: Node.js
+* Backend: Node.js/ supbase
 * Database: MongoDB
 * Authentication: JWT tokens
 * Maps Integration: Google Maps API
